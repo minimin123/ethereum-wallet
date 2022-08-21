@@ -1,4 +1,4 @@
-import { ArrowDownIcon, Logo, UserDefaultImg } from 'assets';
+import { ArrowDownIcon, Logo, AccountImg } from 'assets';
 import { AppHeader } from './header.styles';
 
 const Header = () => {
@@ -14,8 +14,8 @@ const Header = () => {
             <ArrowDownIcon />
           </button>
 
-          <button className="user-btn">
-            <UserDefaultImg />
+          <button className="account-btn">
+            <AccountImg />
           </button>
         </div>
       </div>

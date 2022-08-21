@@ -55,7 +55,7 @@ export const AppHeader = styled.header`
         }
       }
 
-      .user-btn {
+      .account-btn {
         display: flex;
         align-items: center;
         justify-content: center;
