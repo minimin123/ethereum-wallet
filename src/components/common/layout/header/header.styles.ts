@@ -26,17 +26,38 @@ export const AppHeader = styled.header`
       padding: 16px;
     }
 
+    .logo {
+      display: flex;
+      align-items: center;
+      .full-logo {
+        @media ${media.MOBILE} {
+          display: none;
+        }
+      }
+
+      .fox-icon {
+        margin-right: 16px;
+
+        @media ${media.PC} {
+          display: none;
+        }
+        @media ${media.TABLET} {
+          display: none;
+        }
+      }
+    }
+
     .menu {
       display: flex;
+      align-items: center;
 
       .network-btn {
+        position: relative;
         display: flex;
         align-items: center;
-        padding: 4px;
+        padding: 5px 4px;
         border: 1px solid ${color.GRAY01};
-        color: ${color.GRAY03};
         border-radius: 20px;
-        font-size: 0.75rem;
 
         .icon {
           width: 12px;
@@ -47,7 +68,13 @@ export const AppHeader = styled.header`
         }
 
         .text {
+          font-size: 0.75rem;
+          color: ${color.GRAY03};
           margin: 4px 8px;
+
+          @media ${media.SMALL_MOBILE} {
+            display: none;
+          }
         }
 
         svg {
@@ -56,6 +83,7 @@ export const AppHeader = styled.header`
       }
 
       .account-btn {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -66,6 +94,8 @@ export const AppHeader = styled.header`
         border-radius: 50%;
 
         svg {
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           background: rgb(242, 166, 2);
         }
