@@ -1,5 +1,7 @@
+import { Main } from './main.styles';
+
 const MainPage = () => {
-  return <div>메인</div>;
+  return <Main>메인</Main>;
 };
 
 export default MainPage;

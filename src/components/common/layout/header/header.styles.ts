@@ -9,22 +9,15 @@ export const AppHeader = styled.header`
   justify-content: center;
   align-items: center;
   height: 75px;
+  @media ${media.MOBILE} {
+    padding: 0 16px;
+  }
 
   .contents {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 80vw;
-    background-color: ${color};
-
-    @media ${media.TABLET} {
-      width: 85vw;
-    }
-
-    @media ${media.MOBILE} {
-      width: 100%;
-      padding: 16px;
-    }
+    width: 100%;
 
     .logo {
       display: flex;
