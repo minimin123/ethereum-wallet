@@ -48,6 +48,7 @@ const Wrap = styled.div`
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 2px 2px;
   padding: 16px 0;
   color: ${color.BLACK};
+  z-index: 10;
 
   @media ${media.TABLET} {
     right: calc(((100% - 85vw) / 2) + 2px);
@@ -107,8 +108,10 @@ const Wrap = styled.div`
     padding: 0.75rem 1rem;
     color: ${color.BLUE};
     border: 1px solid ${color.BLUE};
+    transition: ease-in-out 0.2s;
     :hover {
-      box-shadow: rgb(0.6, 0.28, 0.735, 0.045) 0px 2px 2px 2px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      transition: ease-in-out 0.2s;
     }
   }
 `;

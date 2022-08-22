@@ -1,4 +1,5 @@
 export { ReactComponent as Logo } from './svgs/logo.svg';
+export { ReactComponent as LogoETH } from './svgs/logo-eth.svg';
 export { ReactComponent as FoxIcon } from './svgs/metamask-fox.svg';
 export { ReactComponent as ArrowIcon } from './svgs/icon-arrow.svg';
 export { ReactComponent as ArrowDownIcon } from './svgs/icon-arrow-down.svg';
@@ -10,3 +11,10 @@ export { ReactComponent as DownloadIcon } from './svgs/icon-download.svg';
 export { ReactComponent as UsbIcon } from './svgs/icon-usb.svg';
 export { ReactComponent as ChatIcon } from './svgs/icon-chat.svg';
 export { ReactComponent as SettingIcon } from './svgs/icon-setting.svg';
+export { ReactComponent as CopyIcon } from './svgs/icon-copy.svg';
+export { ReactComponent as LinkIcon } from './svgs/icon-external-link.svg';
+export { ReactComponent as QrIcon } from './svgs/icon-qr.svg';
+export { ReactComponent as BullseyeIcon } from './svgs/icon-bullseye.svg';
+export { ReactComponent as BuyIcon } from './svgs/icon-buy.svg';
+export { ReactComponent as SendIcon } from './svgs/icon-send.svg';
+export { ReactComponent as SwapIcon } from './svgs/icon-swap.svg';

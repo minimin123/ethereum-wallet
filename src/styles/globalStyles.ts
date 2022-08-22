@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import { color } from './theme';
 
 const GlobalStyles = createGlobalStyle` 
 
@@ -11,7 +12,9 @@ const GlobalStyles = createGlobalStyle`
         color: inherit;
     }
     *{
-        box-sizing: border-box;    
+        box-sizing: border-box;  
+        font-family: Euclid, Roboto, Helvetica, Arial, sans-serif;
+        color : ${color.BLACK};
     }
 
     input, textarea { 
