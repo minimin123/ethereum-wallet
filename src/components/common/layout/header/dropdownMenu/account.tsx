@@ -25,6 +25,17 @@ const AccountDropMenu = ({ toggle, btnRef }: IProps) => {
 
   useOnClickOutside(menuRef, btnRef, toggle);
 
+  const ACCOUNT_MENU = [
+    { icon: <PlusIcon />, title: '계정 생성' },
+    { icon: <DownloadIcon />, title: '계정 가져오기' },
+    { icon: <UsbIcon />, title: '하드웨어 지갑 연결' },
+  ];
+
+  const SETTING_MENU = [
+    { icon: <ChatIcon />, title: '지원' },
+    { icon: <SettingIcon />, title: '설정' },
+  ];
+
   return (
     <Wrap ref={menuRef}>
       <div className="title">
@@ -45,28 +56,22 @@ const AccountDropMenu = ({ toggle, btnRef }: IProps) => {
       <div className="divider" />
 
       <ul>
-        <li>
-          <PlusIcon />
-          계정 생성
-        </li>
-        <li>
-          <DownloadIcon /> 계정 가져오기
-        </li>
-        <li>
-          <UsbIcon /> 하드웨어 지갑 연결
-        </li>
+        {ACCOUNT_MENU.map(item => (
+          <li key={item.title}>
+            {item.icon}
+            {item.title}
+          </li>
+        ))}
       </ul>
       <div className="divider" />
 
       <ul>
-        <li>
-          <ChatIcon />
-          지원
-        </li>
-        <li>
-          <SettingIcon />
-          설정
-        </li>
+        {SETTING_MENU.map(item => (
+          <li key={item.title}>
+            {item.icon}
+            {item.title}
+          </li>
+        ))}
       </ul>
     </Wrap>
   );
@@ -87,6 +92,7 @@ const Wrap = styled.div`
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 2px 2px;
   color: ${color.BLACK};
   font-family: Euclid;
+  z-index: 10;
 
   @media ${media.TABLET} {
     right: calc((100vw - 85vw) / 2);
@@ -116,8 +122,10 @@ const Wrap = styled.div`
       min-width: 59px;
       width: auto;
       border-radius: 50px;
+      transition: ease-in-out 0.2s;
       :hover {
-        box-shadow: rgb(0.6, 0.28, 0.735, 0.045) 0px 2px 2px 2px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        transition: ease-in-out 0.2s;
       }
     }
   }
