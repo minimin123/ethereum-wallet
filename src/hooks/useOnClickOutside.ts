@@ -2,8 +2,8 @@ import { RefObject, useEffect } from 'react';
 
 export default function useOnClickOutside<T extends HTMLElement = HTMLElement>(
   ref: RefObject<T>,
-  buttonRef: RefObject<T>,
   handler: (event: Event) => void,
+  buttonRef?: RefObject<T>,
 ) {
   useEffect(() => {
     const listener = (event: Event) => {
@@ -11,7 +11,7 @@ export default function useOnClickOutside<T extends HTMLElement = HTMLElement>(
         return;
       }
       if (
-        buttonRef.current &&
+        buttonRef?.current &&
         buttonRef?.current.contains(event.target as Node)
       )
         return;

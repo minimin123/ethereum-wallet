@@ -15,7 +15,7 @@ const MainHeader = ({ account }: IAccount) => {
     setIsMenuOpen(prev => !prev);
   };
 
-  useOnClickOutside(menuRef, btnRef, handleClickToggle);
+  useOnClickOutside(menuRef, handleClickToggle, btnRef);
 
   const addressAbbr =
     account.address.slice(0, 5) + '...' + account.address.slice(-4);

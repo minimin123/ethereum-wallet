@@ -11,7 +11,7 @@ import { IDropdownProps } from 'types/types';
 const NetworkDropMenu = ({ toggle, btnRef }: IDropdownProps) => {
   const menuRef = useRef(null);
 
-  useOnClickOutside(menuRef, btnRef, toggle);
+  useOnClickOutside(menuRef, toggle, btnRef);
 
   return (
     <Wrap ref={menuRef}>

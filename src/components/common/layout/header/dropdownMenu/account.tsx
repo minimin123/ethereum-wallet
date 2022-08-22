@@ -19,7 +19,7 @@ import { IDropdownProps } from 'types/types';
 const AccountDropMenu = ({ toggle, btnRef }: IDropdownProps) => {
   const menuRef = useRef(null);
 
-  useOnClickOutside(menuRef, btnRef, toggle);
+  useOnClickOutside(menuRef, toggle, btnRef);
 
   const ACCOUNT_MENU = [
     { icon: <PlusIcon />, title: '계정 생성' },
