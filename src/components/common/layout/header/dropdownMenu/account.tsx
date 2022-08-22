@@ -14,13 +14,9 @@ import {
   SettingIcon,
   UsbIcon,
 } from 'assets';
+import { IDropdownProps } from 'types/types';
 
-interface IProps {
-  toggle: () => void;
-  btnRef: React.MutableRefObject<null>;
-}
-
-const AccountDropMenu = ({ toggle, btnRef }: IProps) => {
+const AccountDropMenu = ({ toggle, btnRef }: IDropdownProps) => {
   const menuRef = useRef(null);
 
   useOnClickOutside(menuRef, btnRef, toggle);

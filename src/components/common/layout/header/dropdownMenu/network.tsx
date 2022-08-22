@@ -6,13 +6,9 @@ import { CheckIcon } from 'assets';
 
 import { media } from 'styles/media';
 import { color } from 'styles/theme';
+import { IDropdownProps } from 'types/types';
 
-interface IProps {
-  toggle: () => void;
-  btnRef: React.MutableRefObject<null>;
-}
-
-const NetworkDropMenu = ({ toggle, btnRef }: IProps) => {
+const NetworkDropMenu = ({ toggle, btnRef }: IDropdownProps) => {
   const menuRef = useRef(null);
 
   useOnClickOutside(menuRef, btnRef, toggle);

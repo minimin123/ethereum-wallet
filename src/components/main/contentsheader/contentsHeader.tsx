@@ -2,17 +2,9 @@ import { useRef, useState } from 'react';
 import { BullseyeIcon, CopyIcon, DotsIcon, LinkIcon, QrIcon } from 'assets';
 import { ContentsHeader } from './contentsHeader.styles';
 import useOnClickOutside from 'hooks/useOnClickOutside';
+import { IAccount } from 'types/types';
 
-interface IProps {
-  account: IAccount;
-}
-
-interface IAccount {
-  name: string;
-  address: string;
-}
-
-const MainHeader = ({ account }: IProps) => {
+const MainHeader = ({ account }: IAccount) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
