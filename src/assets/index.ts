@@ -18,3 +18,4 @@ export { ReactComponent as BullseyeIcon } from './svgs/icon-bullseye.svg';
 export { ReactComponent as BuyIcon } from './svgs/icon-buy.svg';
 export { ReactComponent as SendIcon } from './svgs/icon-send.svg';
 export { ReactComponent as SwapIcon } from './svgs/icon-swap.svg';
+export { ReactComponent as SearchIcon } from './svgs/icon-search.svg';
