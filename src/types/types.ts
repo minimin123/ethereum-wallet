@@ -1,6 +1,6 @@
 export interface IToken {
   name?: string | undefined;
-  symbol: string;
+  symbol: string | undefined;
   iconUrl?: string;
   decimals: number;
   address: string;
@@ -15,4 +15,9 @@ export interface IDropdownProps {
 
 export interface IAccount {
   account: { name: string; address: string };
+}
+
+export interface ISelectedToken {
+  iconUrl: string | undefined;
+  symbol: string | undefined;
 }

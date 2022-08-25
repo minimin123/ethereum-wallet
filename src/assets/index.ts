@@ -19,3 +19,6 @@ export { ReactComponent as BuyIcon } from './svgs/icon-buy.svg';
 export { ReactComponent as SendIcon } from './svgs/icon-send.svg';
 export { ReactComponent as SwapIcon } from './svgs/icon-swap.svg';
 export { ReactComponent as SearchIcon } from './svgs/icon-search.svg';
+export { ReactComponent as UpIcon } from './svgs/icon-arrow-lined-up.svg';
+export { ReactComponent as DownIcon } from './svgs/icon-arrow-lined-down.svg';
+export { ReactComponent as InfoIcon } from './svgs/icon-info.svg';

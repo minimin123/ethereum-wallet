@@ -3,19 +3,29 @@ import styled from 'styled-components';
 import { color } from 'styles/theme';
 
 export const Wrap = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  background-color: ${color.WHITE};
+  z-index: 11;
+  margin-top: 13px;
+  margin-left: 1px;
+
   input {
     width: 310px;
     height: 55px;
     display: flex;
     padding: 0 16px 0 48px;
     border: none;
+    background-color: ${color.WHITE};
     ::placeholder {
       fill: ${color.GRAY03};
     }
+    :focus {
+      border: 1px solid ${color.BLUE};
+    }
   }
 
-  svg {
+  .search-icon {
     position: absolute;
     top: 17px;
     left: 16px;
@@ -26,7 +36,7 @@ export const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     width: 310px;
-    max-height: 330px;
+    max-height: 270px;
     overflow-y: auto;
     box-shadow: 0 0 14px rgb(0 0 0 / 18%);
     background-color: ${color.WHITE};
