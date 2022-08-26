@@ -37,11 +37,10 @@ const SwapPage = () => {
   // 슬리패지를 사용자 맞춤형으로 설정하고, 설정한 슬리패지 한도가 15초과이면 버튼 비활성화
   useEffect(() => {
     if (
-      slippageLimit &&
-      slippageLimit < 1 &&
-      slippageLimit === undefined &&
-      userSlippageLimit &&
-      userSlippageLimit > 15
+      currentToken.amount === 0 ||
+      (slippageLimit === undefined &&
+        userSlippageLimit &&
+        userSlippageLimit > 15)
     ) {
       setIsBtnActive(false);
     } else {
