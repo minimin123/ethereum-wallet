@@ -39,6 +39,7 @@ const SwapPage = () => {
   useEffect(() => {
     if (
       currentToken.amount === 0 ||
+      currentToken.amount === undefined ||
       (slippageLimit === undefined &&
         userSlippageLimit &&
         userSlippageLimit > 15)
@@ -48,6 +49,8 @@ const SwapPage = () => {
       setIsBtnActive(true);
     }
   }, [slippageLimit, userSlippageLimit, currentToken]);
+
+  console.log(currentToken.amount);
 
   const handleClickSwap = () => {
     // 선택된 토큰이 없을 경우 스와핑 early-return
