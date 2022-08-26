@@ -36,5 +36,6 @@
     "react/prop-types": "off",
     "react/no-array-index-key": "warn",
     "no-unused-vars": "warn"
-  }
+  },
+  "eslint.workingDirectories": ["wallet", "ethereum-wallet"]
 }
