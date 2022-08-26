@@ -1,6 +1,6 @@
 # 메타마스크 UI/UX 구현 과제
 메타마스크의 메인페이지와 스왑페이지를 UI/UX 클론코딩했습니다.
-URL: https://ethereum-wallet-blue.vercel.app/
+- URL: https://ethereum-wallet-blue.vercel.app/
 
 ## Getting Started
 
