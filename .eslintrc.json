@@ -17,7 +17,12 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "plugin:import/typescript"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "plugin:import/typescript",
+    "prettier"
+  ],
   "settings": {
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
     "import/resolver": {
