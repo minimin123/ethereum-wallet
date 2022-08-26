@@ -133,7 +133,7 @@ const Option = (props: IProps) => {
       <div className="slippage-option">
         스마트 거래
         {/* 아이콘 & 툴팁 */}
-        <div>
+        <div className="icon-wrapper">
           <InfoIcon />
           <div className="tooltip">{TOOLTIP_CONTENTS.smart}</div>
         </div>
