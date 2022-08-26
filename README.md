@@ -5,7 +5,7 @@
 
 ```bash
 yarn install
-yarn dev
+yarn start
 ```
 
 ## 기술스택 및 사용한 라이브러리
