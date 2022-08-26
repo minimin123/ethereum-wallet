@@ -77,7 +77,6 @@ const SwapPage = () => {
     e.target.src = Default;
   };
 
-  console.log(currentToken);
   return (
     <Wrap>
       {/* 헤더 */}
