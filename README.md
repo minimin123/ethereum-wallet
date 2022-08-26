@@ -16,7 +16,6 @@ yarn dev
  - Typescript
  - React
  - Styled-components
- - EsLint, Prettier
  
 
 ## 구현 기능 및 UI 목록
@@ -32,3 +31,6 @@ yarn dev
 |4|tooliip|<img src="https://user-images.githubusercontent.com/97211582/186876615-b4823c37-bfb9-4899-a129-68a6da43b3bb.gif" width=200px>|마우스 hover시 애니메이션 효과와 함께 툴팁이 나타납니다.|
 
 
+## 아쉬운 점
+- web3.js로 실제로 지갑을 연결해보고 싶었으나 시간이 부족하여 구현하지 못하였습니다.
+- 또한 테스트코드를 작성하지 못한 점이 큰 아쉬움으로 남습니다.
