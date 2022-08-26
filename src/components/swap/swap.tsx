@@ -34,18 +34,20 @@ const SwapPage = () => {
 
   const navigate = useNavigate();
 
+  // 스왑할 금액이 0이면 비활성화
   // 슬리패지를 사용자 맞춤형으로 설정하고, 설정한 슬리패지 한도가 15초과이면 버튼 비활성화
   useEffect(() => {
     if (
-      slippageLimit === undefined &&
-      userSlippageLimit &&
-      userSlippageLimit > 15
+      currentToken.amount === 0 ||
+      (slippageLimit === undefined &&
+        userSlippageLimit &&
+        userSlippageLimit > 15)
     ) {
       setIsBtnActive(false);
     } else {
       setIsBtnActive(true);
     }
-  }, [slippageLimit, userSlippageLimit]);
+  }, [slippageLimit, userSlippageLimit, currentToken]);
 
   const handleClickSwap = () => {
     // 선택된 토큰이 없을 경우 스와핑 early-return
@@ -75,7 +77,6 @@ const SwapPage = () => {
     e.target.src = Default;
   };
 
-  console.log(currentToken);
   return (
     <Wrap>
       {/* 헤더 */}
@@ -91,6 +92,7 @@ const SwapPage = () => {
           <div className="search-bar">
             {isCurrentSearchOpen && (
               <SearchBar
+                token={currentToken}
                 setToken={setCurrentToken}
                 except={selectedToken}
                 toggle={handleClickCurrentSearchBar}

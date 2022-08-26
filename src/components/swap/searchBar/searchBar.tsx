@@ -23,9 +23,10 @@ interface IProps {
   setToken: Dispatch<React.SetStateAction<ISelectedToken>>;
   toggle: () => void;
   except: ISelectedToken;
+  token?: ISelectedToken;
 }
 
-const SearchBar = ({ setToken, toggle, except }: IProps) => {
+const SearchBar = ({ setToken, toggle, except, token }: IProps) => {
   // 선택한 다른 토큰은 목록에 보이지 않도록 예외처리
   const defaultList = TOP_ASSETS.filter(
     result => result.symbol !== except.symbol,
@@ -64,10 +65,17 @@ const SearchBar = ({ setToken, toggle, except }: IProps) => {
   };
 
   const handleClickResult = (e: MouseEvent<HTMLLIElement>) => {
-    setToken({
-      symbol: e.currentTarget.dataset.symbol,
-      iconUrl: e.currentTarget.dataset.icon,
-    });
+    if (token) {
+      setToken({
+        ...token,
+        symbol: e.currentTarget.dataset.symbol,
+        iconUrl: e.currentTarget.dataset.icon,
+      });
+    } else
+      setToken({
+        symbol: e.currentTarget.dataset.symbol,
+        iconUrl: e.currentTarget.dataset.icon,
+      });
     toggle();
   };
 
