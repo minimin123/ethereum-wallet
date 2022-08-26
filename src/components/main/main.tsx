@@ -7,9 +7,12 @@ import AssetTab from './tabs/assetTab';
 import { BuyIcon, LogoETH, SendIcon, SwapIcon } from 'assets';
 
 import { Main } from './main.styles';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
   const [currentTab, setCurrentTab] = useState(0);
+
+  const navigate = useNavigate();
 
   // 계정 정보
   const account = {
@@ -19,9 +22,9 @@ const MainPage = () => {
   };
 
   const MENU = [
-    { icon: <BuyIcon />, title: '구매' },
-    { icon: <SendIcon />, title: '보내기' },
-    { icon: <SwapIcon />, title: '스왑' },
+    { icon: <BuyIcon />, title: '구매', url: '/' },
+    { icon: <SendIcon />, title: '보내기', url: '/' },
+    { icon: <SwapIcon />, title: '스왑', url: '/swap' },
   ];
 
   const TAB = [
@@ -47,7 +50,11 @@ const MainPage = () => {
 
           <ul className="overview-menu">
             {MENU.map(item => (
-              <li key={item.title} className="overview-li">
+              <li
+                key={item.title}
+                className="overview-li"
+                onClick={() => navigate(item.url)}
+              >
                 <div className="li-icon">{item.icon}</div>
                 {item.title}
               </li>

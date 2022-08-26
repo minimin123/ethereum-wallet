@@ -1,10 +1,11 @@
-import { InvalidEvent, useState } from 'react';
+import { InvalidEvent, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SearchBar from './searchBar/searchBar';
-import { Wrap } from './swap.styles';
-import { ISelectedToken } from 'types/types';
-import { ArrowDownIcon, DownIcon, UpIcon } from 'assets';
 import Default from 'assets/svgs/icon-default.svg';
 import Option from './options/option';
+import { SwapReviewBtn, Wrap } from './swap.styles';
+import { ArrowDownIcon, DownIcon, UpIcon } from 'assets';
+import { ISelectedToken } from 'types/types';
 
 const SwapPage = () => {
   const [isCurrentSearchOpen, setIsCurrentSearchOpen] = useState(false);
@@ -14,21 +15,40 @@ const SwapPage = () => {
   const [currentToken, setCurrentToken] = useState<ISelectedToken>({
     iconUrl: '',
     symbol: '토큰 선택',
+    amount: 0,
   });
+
   const [selectedToken, setSelectedToken] = useState<ISelectedToken>({
     iconUrl: '',
     symbol: '토큰 선택',
   });
 
   const [slippageLimit, setSlippageLimit] = useState<number | undefined>(2);
-
-  const [userSlippageLimit, userSetSlippageLimit] = useState<
+  const [userSlippageLimit, setUserSlippageLimit] = useState<
     number | undefined
   >(undefined);
+
   const [isSmartTransOn, setIsSmartTransOn] = useState(false);
 
+  const [isBtnActive, setIsBtnActive] = useState(false);
+
+  const navigate = useNavigate();
+
+  // 슬리패지를 사용자 맞춤형으로 설정하고, 설정한 슬리패지 한도가 15초과이면 버튼 비활성화
+  useEffect(() => {
+    if (
+      slippageLimit === undefined &&
+      userSlippageLimit &&
+      userSlippageLimit > 15
+    ) {
+      setIsBtnActive(false);
+    } else {
+      setIsBtnActive(true);
+    }
+  }, [slippageLimit, userSlippageLimit]);
+
   const handleClickSwap = () => {
-    // 선택된 토큰이 없을 경우 early-return
+    // 선택된 토큰이 없을 경우 스와핑 early-return
     if (
       currentToken.symbol === '토큰 선택' &&
       selectedToken.symbol === '토큰 선택'
@@ -55,12 +75,13 @@ const SwapPage = () => {
     e.target.src = Default;
   };
 
+  console.log(currentToken);
   return (
     <Wrap>
       {/* 헤더 */}
       <section className="swap-header">
         <h1>스왑</h1>
-        <button>취소</button>
+        <button onClick={() => navigate(-1)}>취소</button>
       </section>
 
       {/* 현재토큰 */}
@@ -84,10 +105,21 @@ const SwapPage = () => {
               </div>
               <div className="text">{currentToken.symbol}</div>
             </button>
-            <input placeholder="0" />
+            <input
+              placeholder="0"
+              onChange={e =>
+                setCurrentToken({
+                  ...currentToken,
+                  amount: Number(e.target.value),
+                })
+              }
+            />
           </div>
         </div>
-        <p>0 {currentToken.symbol} 스왑 가능</p>
+
+        {currentToken.symbol !== '토큰 선택' && (
+          <p>0 {currentToken.symbol} 스왑 가능</p>
+        )}
 
         {/* 현재토큰 <-> 스왑할 토큰 변경 버튼 */}
         <div className="btn-wrapper">
@@ -131,15 +163,26 @@ const SwapPage = () => {
       {isOptionOpen && (
         <Option
           slippageLimit={slippageLimit}
-          userSlippageLimit={userSlippageLimit}
           isSmartTransOn={isSmartTransOn}
           setSlippageLimit={setSlippageLimit}
           setIsSmartTransOn={setIsSmartTransOn}
-          userSetSlippageLimit={userSetSlippageLimit}
+          setUserSlippageLimit={setUserSlippageLimit}
         />
       )}
 
-      <section className="swap-footer"></section>
+      {/* 푸터 */}
+      <section className="swap-footer">
+        <SwapReviewBtn
+          disabled={!isBtnActive}
+          isActive={isBtnActive}
+          onClick={() => {
+            console.log(currentToken.amount);
+          }}
+        >
+          스왑 검토
+        </SwapReviewBtn>
+        <p>서비스 약관</p>
+      </section>
     </Wrap>
   );
 };

@@ -20,4 +20,5 @@ export interface IAccount {
 export interface ISelectedToken {
   iconUrl: string | undefined;
   symbol: string | undefined;
+  amount?: number;
 }

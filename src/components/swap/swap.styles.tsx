@@ -6,6 +6,7 @@ import { color } from 'styles/theme';
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 460px;
   height: 620px;
   border: 1px solid ${color.GRAY04};
@@ -189,4 +190,29 @@ export const Wrap = styled.div`
       transform: rotate(180deg);
     }
   }
+
+  .swap-footer {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 310px;
+
+    p {
+      text-align: center;
+      font-size: 0.75rem;
+      line-height: 140%;
+      color: ${color.BLUE};
+    }
+  }
+`;
+
+export const SwapReviewBtn = styled.button<{ isActive: boolean }>`
+  width: 100%;
+  border-radius: 100px;
+  height: 39px;
+  background-color: ${props =>
+    props.isActive ? `${color.BLUE}` : '#037dd680'};
+  color: ${color.WHITE};
+  margin-bottom: 32px;
 `;

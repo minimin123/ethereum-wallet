@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FormEvent, Fragment, useState } from 'react';
+import { ChangeEvent, Dispatch, Fragment, useState } from 'react';
 
 import { InfoIcon } from 'assets';
 import { Input, Wrap } from './option.styles';
@@ -8,33 +8,31 @@ import Toggle from '../toggle/toggle';
 interface IProps {
   slippageLimit: number | undefined;
   isSmartTransOn: boolean;
-  userSlippageLimit: number | undefined;
   setSlippageLimit: Dispatch<React.SetStateAction<number | undefined>>;
   setIsSmartTransOn: Dispatch<React.SetStateAction<boolean>>;
-  userSetSlippageLimit: Dispatch<React.SetStateAction<number | undefined>>;
+  setUserSlippageLimit: Dispatch<React.SetStateAction<number | undefined>>;
 }
+
+const TOOLTIP_CONTENTS = {
+  slippage:
+    "주문 시점과 확인 시점 사이에 가격이 변동되는 현상을 '슬리패지'라고 합니다. 슬리패지가 '최대 슬리패지' 설정을 초과하면 스왑이 자동으로 취소됩니다.",
+  smart:
+    '제출하기 전에 거래를 시뮬레이션하면 거래 비용을 줄이고 실패율을 낮출수 있습니다.',
+};
+
+const OPTIONS = [2, 3];
 
 const Option = (props: IProps) => {
   const {
     slippageLimit,
     isSmartTransOn,
-    userSlippageLimit,
     setSlippageLimit,
     setIsSmartTransOn,
-    userSetSlippageLimit,
+    setUserSlippageLimit,
   } = props;
-
-  const TOOLTIP_CONTENTS = {
-    slippage:
-      "주문 시점과 확인 시점 사이에 가격이 변동되는 현상을 '슬리패지'라고 합니다. 슬리패지가 '최대 슬리패지' 설정을 초과하면 스왑이 자동으로 취소됩니다.",
-    smart:
-      '제출하기 전에 거래를 시뮬레이션하면 거래 비용을 줄이고 실패율을 낮출수 있습니다.',
-  };
 
   const [warning, setWarning] = useState('');
   const [backgroundColor, setBackgroundColor] = useState('blue');
-
-  const OPTIONS = [2, 3];
 
   // 맞춤형 옵션 설정 시 자릿수 최대 4자리 설정
   const handleOnInput = (e: any) => {
@@ -77,7 +75,7 @@ const Option = (props: IProps) => {
       setBackgroundColor('red');
     }
 
-    userSetSlippageLimit(value);
+    setUserSlippageLimit(value);
     setSlippageLimit(undefined);
   };
 
@@ -118,7 +116,7 @@ const Option = (props: IProps) => {
           맞춤형
           {/* 맞춤형 옵션 클릭시 인풋창 */}
           {slippageLimit !== 2 && slippageLimit !== 3 && (
-            <Fragment>
+            <>
               <Input
                 type="number"
                 onInput={handleOnInput}
@@ -126,7 +124,7 @@ const Option = (props: IProps) => {
                 color={backgroundColor}
               />
               <span>%</span>
-            </Fragment>
+            </>
           )}
         </label>
       </div>

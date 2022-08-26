@@ -2,13 +2,17 @@ import styled from 'styled-components';
 import { color } from 'styles/theme';
 
 export const Wrap = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .slippage-option {
     display: flex;
     align-items: center;
     width: 310px;
     height: 25px;
     font-size: 0.875rem;
-    margin: 8px auto 0;
+    margin-top: 8px;
     font-weight: 900;
 
     .icon-wrapper {
@@ -124,7 +128,6 @@ export const Wrap = styled.section`
     color: #d73a49;
     width: 310px;
     padding-top: 8px;
-    margin: 0 auto;
   }
 `;
 
