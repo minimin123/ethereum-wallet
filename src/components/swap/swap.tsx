@@ -38,7 +38,10 @@ const SwapPage = () => {
   // 슬리패지를 사용자 맞춤형으로 설정하고, 설정한 슬리패지 한도가 15초과이면 버튼 비활성화
   useEffect(() => {
     if (
+      selectedToken.symbol === '토큰 선택' ||
+      currentToken.symbol === '토큰 선택' ||
       currentToken.amount === 0 ||
+      currentToken.amount === undefined ||
       (slippageLimit === undefined &&
         userSlippageLimit &&
         userSlippageLimit > 15)
@@ -47,7 +50,9 @@ const SwapPage = () => {
     } else {
       setIsBtnActive(true);
     }
-  }, [slippageLimit, userSlippageLimit, currentToken]);
+  }, [slippageLimit, userSlippageLimit, currentToken, selectedToken]);
+
+  console.log(currentToken.amount);
 
   const handleClickSwap = () => {
     // 선택된 토큰이 없을 경우 스와핑 early-return
@@ -61,10 +66,15 @@ const SwapPage = () => {
 
     // 스왑
     const temp = currentToken;
-    setCurrentToken(selectedToken);
+    setCurrentToken({
+      ...currentToken,
+      symbol: selectedToken.symbol,
+      iconUrl: selectedToken.iconUrl,
+    });
     setSelectedToken(temp);
   };
 
+  console.log(currentToken);
   const handleClickCurrentSearchBar = () => {
     setIsCurrentSearchOpen(prev => !prev);
   };
